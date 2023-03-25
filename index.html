@@ -46,16 +46,14 @@
       .image-container img {
         width: 100%; /* Ajustar el ancho de la imagen */
         height: auto;
-      }
-     #burbujas {
+    #burbujas {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; /* Cambiar el valor de z-index de -1 a 1 */
+  z-index: -1;
 }
-
 
 #burbujas span {
   position: absolute;
@@ -63,8 +61,10 @@
   background-color: #a3d1e3; /* color de las burbujas */
   opacity: 0.7; /* opacidad de las burbujas */
   border-radius: 50%; /* bordes redondeados */
+  animation: burbuja 3s linear infinite; /* duración de la animación */
 }
-      @keyframes burbuja {
+
+@keyframes burbuja {
   0% {
     transform: translateY(0) scale(1);
     opacity: 0.7;
@@ -80,7 +80,7 @@
   left: 50%;
   width: 60px;
   height: 60px;
-  animation: burbuja 15s linear infinite;
+  animation-delay: 0s;
 }
 
 #burbujas span:nth-child(2) {
@@ -88,13 +88,32 @@
   left: 10%;
   width: 40px;
   height: 40px;
-  animation: burbuja 10s linear infinite;
+  animation-delay: 1s;
 }
+
 
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tron">
   </head>
   <body>
+    <script>
+  function crearBurbuja() {
+    var burbuja = document.createElement("span");
+    var tamaño = Math.random() * 60;
+    var duracion = Math.random() * 3;
+    burbuja.style.width = 20 + tamaño + "px";
+    burbuja.style.height = 20 + tamaño + "px";
+    burbuja.style.left = Math.random() * innerWidth + "px";
+    burbuja.style.animationDuration = 2 + duracion + "s";
+    document.getElementById("burbujas").appendChild(burbuja);
+    setTimeout(function () {
+      burbuja.remove();
+    }, 5000);
+  }
+
+  setInterval(crearBurbuja, 3000);
+</script>
+
     <div class="header">
       <h1>TronLink Wallet</h1>
       <h2>Link TRON Ecosistem</h2>
