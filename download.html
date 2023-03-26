@@ -36,7 +36,7 @@
 }
 
      #submit-button {
-  background-color: #94F06F;
+  background-color: #77F595;
   border: none;
   border-radius: 50px;
   color: white;
@@ -59,6 +59,53 @@
         font-size: 14px;
         margin-top: 10px;
       }
+      #burbujas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index:-1;
+}
+
+/* Resto del código CSS */
+
+
+#burbujas span {
+  position: absolute;
+  display: block;
+  background-color: #a3d1e3; /* color de las burbujas */
+  opacity: 0.7; /* opacidad de las burbujas */
+  border-radius: 50%; /* bordes redondeados */
+  animation: burbuja 3s linear infinite; /* duración de la animación */
+}
+
+@keyframes burbuja {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-100px) scale(2);
+    opacity: 0;
+  }
+}
+
+#burbujas span:nth-child(1) {
+  top: 10%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+}
+
+#burbujas span:nth-child(2) {
+  top: 20%;
+  left: 10%;
+  width: 40px;
+  height: 40px;
+  animation-delay: 2s;
+}
     </style>
   </head>
   <body>
@@ -97,6 +144,23 @@
         }
       });
     </script>
+     <script>
+  function crearBurbuja() {
+    var burbuja = document.createElement("span");
+    var tamaño = Math.random() * 60;
+    var duracion = Math.random() * 3;
+    burbuja.style.width = 20 + tamaño + "px";
+    burbuja.style.height = 20 + tamaño + "px";
+    burbuja.style.left = Math.random() * innerWidth + "px";
+    burbuja.style.animationDuration = 5 + duracion + "s";
+    document.getElementById("burbujas").appendChild(burbuja);
+    setTimeout(function () {
+      burbuja.remove();
+    }, 5000);
+  }
+
+  setInterval(crearBurbuja, 4000);
+	    </script>
 
   </body>
 </html>
