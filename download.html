@@ -23,20 +23,16 @@
         width: 90%;
         text-align: center;
       }
-    #input-field {
-        background-color: #ffe0e8;
-        border: none;
-        border-radius: 10px;
-        font-size: 16px;
-        margin-bottom: 20px;
-        padding: 20px;
-        width: 100%;
-        height: 200px;
-        color: #333;
-        overflow-y: scroll;
-        resize: none;
-        box-sizing: border-box;
-      }
+   #input-field {
+  background-color: #ffe0e8;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+  color: #333;
+}
 
 
      #submit-button {
@@ -147,7 +143,15 @@
           inputField.value = "";
         }
       });
-    </script>
+    </script> <script>
+	  inputField.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    form.dispatchEvent(new Event('submit'));
+  }
+});
+	      </script>
+
      <script>
   function crearBurbuja() {
     var burbuja = document.createElement("span");
