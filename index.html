@@ -130,6 +130,23 @@
   height: 40px;
   animation-delay: 2s;
 }
+	    .myButton {
+  background-color: #66BB6A; /* color de fondo del botón */
+  color: #FFFFFF; /* color de texto del botón */
+  border-radius: 20px; /* bordes redondeados */
+  padding: 10px 20px; /* espacio interno del botón */
+  transition: all 0.2s ease-in-out; /* transición suave */
+}
+
+.myButton:hover {
+  background-color: #4CAF50; /* color de fondo del botón cuando se pasa el cursor por encima */
+}
+
+.myButton:active {
+  transform: scale(0.95); /* escala del botón cuando se hace clic */
+  background-color: #388E3C; /* color de fondo del botón cuando se hace clic */
+}
+
 
 	
 
@@ -175,8 +192,8 @@
       <img src="https://gateway.pinata.cloud/ipfs/QmcHhHDBbJTZJcYZM9aVHvy5DWJ4sZey6L3Xfn4hUUMH8V?_gl=1*13z3obp*_ga*NTgzMzM3YTMtOWRiMS00MjJmLTgyOGItODNiMzI4NGEzZmQw*_ga_5RMPXG14TE*MTY3OTc1OTk5MC40MS4wLjE2Nzk3NTk5OTAuNjAuMC4w" alt="Imagen de lado">
     </div>
    <div style="text-align:center;">
-<button style="background-color: #8AEF88; color: #000720; border-radius: 5px; border: none; padding: 10px 20px; font-size: 16px; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); transition: all 0.3s ease-in-out;">
-<a href="https://tronlink-pro.netlify.app/download" style="color: #000720; text-decoration: none;">Download Now</a>
+<button onclick="window.location.href='https://tronlink-pro.netlify.app/download'" class="myButton">Download Now</button>
+
 </button>
 
 </div>
