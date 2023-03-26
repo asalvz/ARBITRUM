@@ -32,18 +32,25 @@
         box-sizing: border-box;
         color: #333;
       }
-      #submit-button {
-        background-color: #E5E9F0;
-        color: #011332;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        font-size: 20px;
-        cursor: pointer;
-      }
-      .button:hover {
-        background-color: #3e8e41;
-      }
+     #submit-button {
+  background-color: pink;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+#submit-button:hover {
+  background-color: #ff7eb9;
+  cursor: pointer;
+}
+
+#submit-button:active {
+  transform: scale(0.95);
+}
+
       .error {
         color: red;
         font-size: 14px;
